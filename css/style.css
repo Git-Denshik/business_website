@@ -374,11 +374,38 @@ h5 {
 }
 
 .section-stats {
+  display: flex;
   background-color: #E9EFFF;
 }
-.section-stats .section-inner {
-  padding-top: 60px;
-  padding-bottom: 60px;
+.section-stats__icon {
+  margin-bottom: 24px;
+}
+.section-stats__number {
+  font-family: "Quicksand", sans-serif;
+  margin-bottom: 28px;
+  font-size: 48px;
+}
+.section-stats__text {
+  font-family: "Quicksand", sans-serif;
+  width: 35%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.section-stats__left, .section-stats__right {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  padding: 64px 88px;
+}
+.section-stats__left {
+  text-align: right;
+  background-color: #6888FF;
+  color: white;
+  align-items: flex-end;
+}
+.section-stats__right {
+  color: #5E80FF;
 }
 
 .section-blog {

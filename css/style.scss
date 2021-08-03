@@ -20,6 +20,8 @@ $fw-bold: 700;
 
 $fs-sm: 12px;
 $fs-md: 15px;
+$fs-lg: 18px;
+$fs-xl: 48px;
 
 $padding-vertical-xs: $base * 5;
 $padding-vertical-sm: $base * 15;
@@ -483,11 +485,43 @@ h5 {
 
 // === stats ===
 .section-stats{
+    display: flex;
     background-color: #E9EFFF;
 
-    .section-inner{
-        padding-top: $padding-vertical-sm;
-        padding-bottom: $padding-vertical-sm;
+    &__icon {
+        margin-bottom: $base * 6
+    }
+    &__number {
+        @include Quicksand;
+
+        margin-bottom: $base * 7;
+        font-size: $fs-xl;
+    }
+    &__text {
+        @include Quicksand;
+
+        width: 35%;
+        font-size: $fs-lg;
+        font-weight: $fw-medium;
+        line-height:  1.5;
+    } 
+
+    &__left,
+    &__right{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 50%;
+        padding: $base*16 $base*22;
+    }
+
+    &__left {
+        text-align: right;
+        background-color: #6888FF;
+        color: white;
+        align-items: flex-end;
+    }
+    &__right {
+        color: #5E80FF;
     }
 }
 // === / stats ===
