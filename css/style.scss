@@ -674,7 +674,64 @@ h5 {
 
 // === quotes ===
 .section-quotes{
-    background-color: #EAF0FF;
+    background: linear-gradient(#eaebff, #f6f9ff);
+
+    .section-inner {
+        display: flex;
+        justify-content: space-between;
+        color: #3D4F9F;
+
+        h3 {
+            font-weight: $fw-medium;
+        }
+    }
+
+    &__left,
+    &__right {
+        flex-basis: 45%;
+    }
+
+    &__left {
+        .text {
+            line-height: 2;
+            color: #A4ABC8;
+        }
+    }
+}
+
+.slider-quotes {
+    @include list-null;
+
+    margin-bottom: $base * 20;
+
+    &__item {
+        position: relative;
+        padding: $base*10 $base*17 $base*15;
+        border: 1px solid #d8e3fe;
+        background-color: white;
+        box-shadow: 0 5px 50px #f3f5fa;
+
+        &-text {
+            font-size: $fs-md;
+            line-height: 2;
+            color: #676F95;
+        }
+
+        &-photo {
+            $height: $base * 15;
+
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: -$height / 2;
+            width: $base *15;
+            height: $base * 15;
+            overflow: hidden;
+            border-radius: 100%;
+            background-color: white;
+        }
+    }
 }
 // === / quotes ===
 
