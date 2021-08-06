@@ -69,13 +69,13 @@ body {
 }
 .btn--secondary {
   background-color: #4C85FF;
-  color: white;
+  color: #fff;
 }
 .btn--secondary:hover {
   background-color: #b9d0ff;
 }
 .btn--secondary-inverted {
-  background-color: white;
+  background-color: #fff;
   color: #565F82;
 }
 .btn--secondary-inverted:hover {
@@ -213,7 +213,7 @@ h5 {
   font-size: 12px;
   font-weight: 500;
   text-decoration: none;
-  color: #697CA6;
+  color: #495274;
   transition: 0.2s;
 }
 .nav-wrapper__item-link:hover {
@@ -239,7 +239,7 @@ h5 {
   margin-left: 40px;
 }
 .socials-wrapper__item-link path {
-  fill: #697CA6;
+  fill: #495274;
   transition: 0.2s;
 }
 .socials-wrapper__item-link:hover path {
@@ -292,7 +292,7 @@ h5 {
   width: 52px;
   height: 52px;
   border-radius: 100%;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 8px 48px rgba(201, 209, 231, 0.6);
 }
 .icon-play svg {
@@ -450,7 +450,7 @@ h5 {
 .section-stats__left {
   text-align: right;
   background-color: #6888FF;
-  color: white;
+  color: #fff;
   align-items: flex-end;
 }
 .section-stats__right {
@@ -472,7 +472,7 @@ h5 {
   padding: 0;
   list-style-type: none;
   border: 1px solid #d8e3fe;
-  background-color: white;
+  background-color: #fff;
   color: #3D4F9F;
   box-shadow: 0 12px 48px #eff4ff;
 }
@@ -505,7 +505,7 @@ h5 {
   width: 64px;
   height: 64px;
   border-radius: 100%;
-  background: white url(../img/blog/loupe.svg) no-repeat 50% 50%;
+  background: #fff url(../img/blog/loupe.svg) no-repeat 50% 50%;
   opacity: 0;
   transition: 0.2s;
 }
@@ -606,7 +606,7 @@ h5 {
   position: relative;
   padding: 40px 68px 60px;
   border: 1px solid #d8e3fe;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 5px 50px #f3f5fa;
 }
 .slider-quotes__item-text {
@@ -624,7 +624,7 @@ h5 {
   height: 60px;
   overflow: hidden;
   border-radius: 100%;
-  background-color: white;
+  background-color: #fff;
 }
 
 .section-faq {
@@ -690,7 +690,7 @@ h5 {
 .section-get-started {
   position: relative;
   background: linear-gradient(#6888ff, #5e80ff);
-  color: white;
+  color: #fff;
   text-align: center;
 }
 .section-get-started::before {
@@ -709,7 +709,7 @@ h5 {
 }
 .section-get-started h2,
 .section-get-started h5 {
-  color: white;
+  color: #fff;
 }
 .section-get-started h2 {
   font-weight: 300;

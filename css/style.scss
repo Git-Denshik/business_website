@@ -37,7 +37,8 @@ $color-divider:#D8E3FE;
 
 $transition: .2s;
 
-$color-primary:#697CA6;
+$color-white:#fff;
+$color-primary:#495274;
 $color-secondary:#6188FF;
 // === / Variables ===
 
@@ -120,14 +121,14 @@ body{
 
     &--secondary{
         background-color: #4C85FF;
-        color: white;
+        color: $color-white;
 
         &:hover{
             background-color: darken(#D2E1FF, 5%);
         }
 
         &-inverted {
-            background-color: white;
+            background-color: $color-white;
             color: #565F82;
 
             &:hover{
@@ -386,7 +387,7 @@ h5 {
     width: $base * 13;
     height: $base * 13;
     border-radius: 100%;
-    background-color: white;
+    background-color: $color-white;
     box-shadow: 0 $base*2 $base*12 rgba(#c9d1e7, .6);
 
     svg {
@@ -582,7 +583,7 @@ h5 {
     &__left {
         text-align: right;
         background-color: #6888FF;
-        color: white;
+        color: $color-white;
         align-items: flex-end;
     }
     &__right {
@@ -606,7 +607,7 @@ h5 {
     @include list-null;
 
     border: 1px solid #d8e3fe;
-    background-color: white;
+    background-color: $color-white;
     color: #3D4F9F;
     box-shadow: 0 $base*3 $base*12 #eff4ff;
 
@@ -641,7 +642,7 @@ h5 {
                     width: $base * 16;
                     height: $base * 16;
                     border-radius: 100%;
-                    background: white url(../img/blog/loupe.svg) no-repeat 50% 50%;
+                    background: $color-white url(../img/blog/loupe.svg) no-repeat 50% 50%;
                     opacity: 0;
                     transition: $transition;
                 }
@@ -767,7 +768,7 @@ h5 {
         position: relative;
         padding: $base*10 $base*17 $base*15;
         border: 1px solid #d8e3fe;
-        background-color: white;
+        background-color: $color-white;
         box-shadow: 0 5px 50px #f3f5fa;
 
         &-text {
@@ -788,7 +789,7 @@ h5 {
             height: $base * 15;
             overflow: hidden;
             border-radius: 100%;
-            background-color: white;
+            background-color: $color-white;
         }
     }
 }
@@ -813,12 +814,12 @@ h5 {
 
         &--active {
             .arrow {
-                stroke: #495274;
+                stroke: $color-primary;
             }
 
             #{$parent}-trigger {
                 font-weight: $fw-bold;
-                color: #495274;
+                color: $color-primary;
 
                 &-icon {
                     transform: rotate(0);
@@ -875,7 +876,7 @@ h5 {
 .section-get-started{
     position: relative;
     background: linear-gradient(#6888ff, #5e80ff);
-    color: white;
+    color: $color-white;
     text-align: center;
 
     &::before {
@@ -897,7 +898,7 @@ h5 {
 
     h2,
     h5 {
-        color: white;
+        color: $color-white;
     }
 
     h2 {
