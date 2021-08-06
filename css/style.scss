@@ -62,6 +62,21 @@ body{
     }
 }
 
+.input {
+    padding: $base*3 $base*4;
+    font-size: $fs-sm;
+    font-weight: $fw-bold;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: #efeff7;
+    color: #7a85ad;
+
+    &--size--lg {
+        padding: $base*5 $base*6;
+        border-radius: 5px;
+    }
+}
+
 .btn{
     @include Quicksand;
     
@@ -77,6 +92,13 @@ body{
     transition: $transition;
     box-sizing: border-box;
     white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    &--size--lg {
+        padding: $base*5 $base*15;
+        border-radius: 5px;
+    }
 
     &--danger {
         background-color: #FFD7D7;
@@ -894,6 +916,46 @@ h5 {
 // === newsleter ===
 .section-newsleter{
     background-color: #FCFDFF;
+
+    .section-inner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__left {
+        flex-basis: 35%;
+
+        &-title {
+            @include Quicksand;
+
+            font-size: $fs-lg;
+            font-weight: $fw-bold;
+            margin-bottom: $base * 4;
+            color: #3D4F9F;
+        }
+
+        &-text {
+            font-size: $fs-md;
+            line-height: 2;
+            color: #8D96BD;
+        }
+    }
+
+    &__right {
+        flex-basis: 55%;
+    }
+}
+
+.form-newsleter {
+    display: flex;
+
+    input {
+        flex-grow: 1;
+    }
+
+    .btn {
+        margin-left: $base * 3;
+    }
 }
 // === / newsleter ===
 

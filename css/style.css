@@ -18,6 +18,20 @@ body {
   max-width: 1200px;
 }
 
+.input {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: #efeff7;
+  color: #7a85ad;
+}
+.input--size--lg {
+  padding: 20px 24px;
+  border-radius: 5px;
+}
+
 .btn {
   font-family: "Quicksand", sans-serif;
   display: inline-block;
@@ -32,6 +46,12 @@ body {
   transition: 0.2s;
   box-sizing: border-box;
   white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn--size--lg {
+  padding: 20px 60px;
+  border-radius: 5px;
 }
 .btn--danger {
   background-color: #FFD7D7;
@@ -705,6 +725,38 @@ h5 {
 
 .section-newsleter {
   background-color: #FCFDFF;
+}
+.section-newsleter .section-inner {
+  display: flex;
+  justify-content: space-between;
+}
+.section-newsleter__left {
+  flex-basis: 35%;
+}
+.section-newsleter__left-title {
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #3D4F9F;
+}
+.section-newsleter__left-text {
+  font-size: 15px;
+  line-height: 2;
+  color: #8D96BD;
+}
+.section-newsleter__right {
+  flex-basis: 55%;
+}
+
+.form-newsleter {
+  display: flex;
+}
+.form-newsleter input {
+  flex-grow: 1;
+}
+.form-newsleter .btn {
+  margin-left: 12px;
 }
 
 .section-footer .section-inner {
