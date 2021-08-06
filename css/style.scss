@@ -67,13 +67,13 @@ body{
     font-size: $fs-sm;
     font-weight: $fw-bold;
     border: 1px solid transparent;
-    border-radius: 2px;
+    border-radius: $base / 2;
     background: #efeff7;
     color: #7a85ad;
 
     &--size--lg {
         padding: $base*5 $base*6;
-        border-radius: 5px;
+        border-radius: $base;
     }
 }
 
@@ -84,7 +84,7 @@ body{
     margin: 0;
     padding: $base*3 $base*4;
     border: 0;
-    border-radius: 2px;
+    border-radius: $base / 2;
     background-color: none;
     font-size: $fs-sm;
     font-weight: $fw-bold;
@@ -97,7 +97,7 @@ body{
 
     &--size--lg {
         padding: $base*5 $base*15;
-        border-radius: 5px;
+        border-radius: $base;
     }
 
     &--danger {
@@ -387,7 +387,7 @@ h5 {
     height: $base * 13;
     border-radius: 100%;
     background-color: white;
-    box-shadow: 0 10px 50px rgba(#c9d1e7, .6);
+    box-shadow: 0 $base*2 $base*12 rgba(#c9d1e7, .6);
 
     svg {
         width: $base * 3;
@@ -484,20 +484,23 @@ h5 {
     text-align: center;
 
     &__item {
+        $margin-left: $base * 10;
+        $divider-width: $base * 7;
+
         position: relative;
         flex-basis: 25%;
 
         &:not(:first-child) {
-            margin-left: $base * 10;
+            margin-left: $margin-left;
         }
 
         &:not(:first-child)::before {
             position: absolute;
-            top: 120px;
-            left: -34%;
-            content: "";
+            top: $base * 30;
+            left: - $divider-width - ($margin-left - $divider-width) / 2;
+            content: '';
             height: 1px;
-            width: 28px;
+            width: $divider-width;
             background-color: #DAE4FE;
 
         }
@@ -605,7 +608,7 @@ h5 {
     border: 1px solid #d8e3fe;
     background-color: white;
     color: #3D4F9F;
-    box-shadow: 0 15px 50px #eff4ff;
+    box-shadow: 0 $base*3 $base*12 #eff4ff;
 
     &__item{
         display: flex;
@@ -618,16 +621,16 @@ h5 {
 
         &-gallery {
             display: grid;
-            grid-template-rows: repeat(2, 120px);
-            grid-template-columns: repeat(3, 120px);
-            grid-gap: 20px;
+            grid-template-rows: repeat(2, $base*30);
+            grid-template-columns: repeat(3, $base*30);
+            grid-gap: $base*5;
 
             .image-link {
                 display: block;
                 position: relative;
-                border-radius: 5px;
+                border-radius: $base;
                 overflow: hidden;
-                box-shadow: 0 15px 100px #e5ebf8;
+                box-shadow: 0 $base*3 $base*25 #e5ebf8;
 
                 .loupe {
                     position: absolute;
@@ -949,11 +952,11 @@ h5 {
 .form-newsleter {
     display: flex;
 
-    input {
+    &__input {
         flex-grow: 1;
     }
 
-    .btn {
+    &__btn {
         margin-left: $base * 3;
     }
 }
@@ -970,8 +973,8 @@ h5 {
 .copyright{
     @include Quicksand;
 
-    margin-top: $base * 7;
     margin-left: $base * 24;
+    margin-top: $base * 7;
     color: #AEB8D0;
     font-size: $fs-sm;
     font-weight: $fw-medium;
