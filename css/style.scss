@@ -103,6 +103,15 @@ body{
         &:hover{
             background-color: darken(#D2E1FF, 5%);
         }
+
+        &-inverted {
+            background-color: white;
+            color: #565F82;
+
+            &:hover{
+              background-color: darken(#fff, 5%);
+            }
+        }
     }
 
     &--grayscale{
@@ -115,8 +124,22 @@ body{
 
     &--no-bg{
         border: 1px solid #D1D1E4;
-        // background-color: #F5F8FF;
         color: #ADB4D2;
+
+        &:hover {
+            color: darken(#adb4d2, 10%);
+            border: 1px solid darken(#d1d1e4, 10%);
+        }
+
+        &-inverted {
+            border-color: #a0b4ff;
+            color: #c7d3ff;
+
+            &:hover{
+              color: lighten(#adb4d2, 10%);
+              border-color: lighten(#a0b4ff, 5%);
+            }
+        }
     }
 }
 
@@ -825,7 +848,46 @@ h5 {
 
 // === get started ===
 .section-get-started{
-    background-color: #6888FF;
+    position: relative;
+    background: linear-gradient(#6888ff, #5e80ff);
+    color: white;
+    text-align: center;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 5;
+        content: '';
+        background: url(../img/get_started/Group.svg) no-repeat 50% 50%;
+
+    }
+
+    .section-inner {
+        position: relative;
+        z-index: 10;
+    }
+
+    h2,
+    h5 {
+        color: white;
+    }
+
+    h2 {
+        font-weight: $fw-light;
+
+        span {
+            font-weight: $fw-medium;
+        }
+    }
+
+    .text {
+        max-width: 60%;
+        margin: 0 auto $base*5;
+        line-height: 2;
+    }
 }
 // === / get started ===
 
