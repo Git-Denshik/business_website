@@ -16,18 +16,40 @@
 }
 // === / Mixin ===
 
+// === Function ===
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function rem($num) {
+    @return (strip-unit($num) / 16) * 1rem;
+}
+// === / Function ===
+
 // === Variables ===
-$base: 4px;
+// $breakpoint-xs-min: 0;
+$breakpoint-sm-min: 576px;
+$breakpoint-xs-max: $breakpoint-sm-min - 1px;
+$breakpoint-md-min: 768px;
+$breakpoint-sm-max: $breakpoint-md-min - 1px;
+$breakpoint-lg-min: 992px;
+$breakpoint-md-max: $breakpoint-lg-min - 1px;
+$breakpoint-xl-min: 1200px;
+$breakpoint-lg-max: $breakpoint-xl-min - 1px;
+$breakpoint-xxl-min: 1400px;
+$breakpoint-xl-max: $breakpoint-xxl-min - 1px;
+
+$base: rem(4px);
 
 $fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
-$fs-sm: 12px;
-$fs-md: 15px;
-$fs-lg: 18px;
-$fs-xl: 48px;
+$fs-sm: rem(12px);
+$fs-md: rem(15px);
+$fs-lg: rem(18px);
+$fs-xl: rem(48px);
 
 $padding-vertical-xs: $base * 5;
 $padding-vertical-sm: $base * 15;
@@ -43,6 +65,16 @@ $color-secondary:#6188FF;
 // === / Variables ===
 
 // === Common ===
+// html {
+//     @media (max-width:$breakpoint-md-max) {
+//         font-size: 14px;
+//     }
+
+//     @media (max-width:$breakpoint-sm-max) {
+//         font-size: 10px;
+//     }
+// }
+
 body{
     @include roboto;
 
@@ -50,6 +82,7 @@ body{
 }
 
 .section-outer{
+    padding: 0 $base*5;
     border-bottom: 1px solid $color-divider;
 }
 .section-inner{
@@ -188,23 +221,6 @@ h2 {
     text-transform: uppercase;
 }
 
-// h3 { 
-//     margin-bottom: $base * 7;
-//     font-size: 36px; 
-// }
-// h4 { 
-//     margin-bottom: $base * 20;
-//     font-size: 24px; 
-// }
-
-// h5 {
-//     @include roboto;
-
-//     font-size: 10px;
-//     margin-bottom: $base * 4;
-//     text-transform: uppercase;
-// }
-
 .section-subtitle {
     @include Quicksand;
 
@@ -268,6 +284,8 @@ h2 {
 
 // === hearder ===
 .section-header{
+    position: relative;
+
     .section-inner{
         padding-top: $padding-vertical-xs;
         padding-bottom: $padding-vertical-xs;
@@ -277,7 +295,74 @@ h2 {
 .main-navigation{
     display: flex;
     align-items: center;
+
+    &__inner-wrap {
+        display: flex;
+        align-items: center;
+        margin-left: $base * 18;
+        flex-grow: 1;
+
+        .section-header & {
+            @media (max-width:$breakpoint-md-max) {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                margin-left: 0;
+                padding: $base*5;
+                background-color: $color-white;
+                z-index: 10;
+            }
+        }
+
+        @media (max-width:$breakpoint-md-max) {
+            flex-direction: column;
+
+            .socials,
+            .nav {
+                margin-bottom: $base * 4;
+            }
+            
+            &,
+            .socials, 
+            .btn-wrapper {
+                margin-left: 0;
+                margin-top: $base * 4;
+            }
+        }
+    }
+    @media (max-width:$breakpoint-md-max) {
+        .section-footer & {
+            flex-direction: column;
+        }
+        .logo {
+            margin-bottom: $base * 4;
+        }
+    }
 }
+
+// === button burger ===
+.btn-burger {
+    display: none;
+    margin-left: auto;
+
+    &__line {
+        display: block;
+        width: $base * 4;
+        height: $base / 2;
+        background-color: rgb(172, 172, 172);
+
+        & + & {
+            margin-top: $base;
+        }
+    }
+
+    @media (max-width:$breakpoint-md-max) {
+        display: block;
+    }
+}
+// === / button burger ===
 
 .logo{
     &__link {
@@ -289,9 +374,7 @@ h2 {
     }
 }
 
-.nav{
-    margin-left: $base * 18;
-}
+// .nav{}
 
 .nav-wrapper{
     display: flex;
@@ -365,6 +448,7 @@ h2 {
 .section-hero-image{
     background-color: #F4F7FF;
     position: relative;
+    padding: 0;
 
     .dots {
         position: absolute;
@@ -479,6 +563,9 @@ h2 {
             margin-left: $base;
         }
     }
+    @media (min-width:$breakpoint-lg-max) {
+        width: 40%;
+    }
 }
 
 // === plan andn manage ===
@@ -579,6 +666,7 @@ h2 {
 // === stats ===
 .section-stats{
     display: flex;
+    padding: 0;
     background-color: #E9EFFF;
 
     &__icon {
@@ -593,10 +681,14 @@ h2 {
     &__text {
         @include Quicksand;
 
-        width: 35%;
+        width: 40%;
         font-size: $fs-lg;
         font-weight: $fw-medium;
         line-height:  1.5;
+
+        @media (min-width:$breakpoint-lg-min) {
+            width: 40%;
+        }
     } 
 
     &__left,
@@ -645,6 +737,7 @@ h2 {
 
     &__item{
         display: flex;
+        justify-content: space-between;
         padding: $base*16 $base*8;
 
         &-gallery,
@@ -665,8 +758,9 @@ h2 {
                 overflow: hidden;
                 box-shadow: 0 $base*3 $base*25 #e5ebf8;
 
-                .loupe {
+                &::after {
                     position: absolute;
+                    content: '';
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
@@ -679,10 +773,8 @@ h2 {
                     transition: $transition;
                 }
 
-                &:hover {
-                    .loupe {
-                        opacity: 1;
-                    }
+                &:hover::after {
+                    opacity: 1;
                 }
 
                 img {
@@ -731,7 +823,6 @@ h2 {
         }
 
         &-content {
-            margin-left: 5%;
 
             h3 {
                 margin-bottom: $base * 7;
@@ -765,6 +856,10 @@ h2 {
         margin-left: $base * 20;
         left: 100%;
         transform: translateY(-50%) rotate(180deg);
+    }
+
+    @media (max-width:$breakpoint-lg-max) {
+        display: none;
     }
 }
 // === / blog ===
@@ -821,8 +916,7 @@ h2 {
             position: absolute;
             top: 100%;
             left: 50%;
-            transform: translateX(-50%);
-            margin-top: -$height / 2;
+            transform: translate(-50%, -$height / 2);
             width: $base *15;
             height: $base * 15;
             overflow: hidden;
@@ -1012,7 +1106,7 @@ h2 {
 // === footer ===
 .section-footer{
     .section-inner{
-        padding-top: $padding-vertical-sm;
+        padding-top: $padding-vertical-xs;
         padding-bottom: $padding-vertical-xs;
     }
 }
@@ -1025,5 +1119,10 @@ h2 {
     color: #AEB8D0;
     font-size: $fs-sm;
     font-weight: $fw-medium;
+
+    @media (max-width:$breakpoint-md-max) {
+        margin-left: 0;
+        text-align: center;
+    }
 }
 // === / footer ===
