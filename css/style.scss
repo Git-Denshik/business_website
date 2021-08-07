@@ -51,10 +51,6 @@ $fs-md: rem(15px);
 $fs-lg: rem(18px);
 $fs-xl: rem(48px);
 
-$padding-vertical-xs: $base * 5;
-$padding-vertical-sm: $base * 15;
-$padding-vertical: $base * 30;
-
 $color-divider:#D8E3FE;
 
 $transition: .2s;
@@ -88,13 +84,46 @@ body{
 .section-inner{
     max-width: 900px;
     margin: 0 auto;
-    padding-top: $padding-vertical;
-    padding-bottom: $padding-vertical;
+    // padding-top: $padding-vertical;
+    // padding-bottom: $padding-vertical;
 
     &--wide{
         max-width: 1200px;
     }
 }
+
+.vertical-indent {
+    &--s {
+        padding-top: $base * 5;
+        padding-bottom: $base * 5;
+    }
+
+    &--m {
+        padding-top: $base * 15;
+        padding-bottom: $base * 15;
+    }
+
+    &--l {
+        padding-top: $base * 30;
+        padding-bottom: $base * 30;
+    }
+
+    @media (max-width:$breakpoint-md-max) {
+        &--m {
+            padding-top: $base * 10;
+            padding-bottom: $base * 10;
+        }
+    
+        &--l {
+            padding-top: $base * 20;
+            padding-bottom: $base * 20;
+        }
+    }
+}
+
+// vertical-indent vertical-indent--s
+// vertical-indent vertical-indent--m
+// vertical-indent vertical-indent--l
 
 .input {
     padding: $base*3 $base*4;
@@ -285,11 +314,6 @@ h2 {
 // === hearder ===
 .section-header{
     position: relative;
-
-    .section-inner{
-        padding-top: $padding-vertical-xs;
-        padding-bottom: $padding-vertical-xs;
-    }
 }
 
 .main-navigation{
@@ -512,8 +536,6 @@ h2 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: $padding-vertical-sm;
-        padding-bottom: $padding-vertical-sm;
 
         a {
             opacity: .2;
@@ -534,7 +556,7 @@ h2 {
     overflow: hidden;
 
     &__content {
-        width: 50%;
+        width: 60%;
 
         .aside-image {
             position: absolute;
@@ -548,10 +570,8 @@ h2 {
 
             span {
                 font-weight: $fw-medium;
-                ;
             }
         }
-    }
 
     .text {
         margin-bottom: $base * 12;
@@ -563,9 +583,11 @@ h2 {
             margin-left: $base;
         }
     }
-    @media (min-width:$breakpoint-lg-max) {
-        width: 40%;
+    
+    @media (min-width:$breakpoint-lg-min) {
+        width: 50%;
     }
+  }
 }
 
 // === plan andn manage ===
@@ -595,6 +617,10 @@ h2 {
     padding: 0;
     list-style: none;
     text-align: center;
+
+    @media (max-width:$breakpoint-md-max) {
+        margin-bottom: $base * 15;
+    }
 
     &__item {
         $margin-left: $base * 10;
@@ -725,6 +751,10 @@ h2 {
 .slider-wrapper {
     position: relative;
     margin-bottom: $base * 25;
+
+    @media (max-width:$breakpoint-md-max) {
+        margin-bottom: $base * 15;
+    }
 }
 
 .slider-blog {
@@ -740,16 +770,11 @@ h2 {
         justify-content: space-between;
         padding: $base*16 $base*8;
 
-        &-gallery,
-        &-content {
-            flex-basis: 45%;
-        }
-
         &-gallery {
             display: grid;
             grid-template-rows: repeat(2, $base*30);
             grid-template-columns: repeat(3, $base*30);
-            grid-gap: $base*5;
+            grid-gap: $base*4;
 
             .image-link {
                 display: block;
@@ -820,9 +845,17 @@ h2 {
                     }
                 } 
             }
+
+            @media (max-width: $breakpoint-md-max) {
+                grid-template-rows: repeat(2, $base*25);
+                grid-template-columns: repeat(3, $base*25);
+                grid-gap: $base * 2;
+            }
         }
 
         &-content {
+            flex-grow: 1;
+            margin-left: $base * 5;
 
             h3 {
                 margin-bottom: $base * 7;
@@ -1063,6 +1096,10 @@ h2 {
     .section-inner {
         display: flex;
         justify-content: space-between;
+
+        @media (max-width: $breakpoint-md-max) {
+            flex-direction: column;
+        }
     }
 
     &__left {
@@ -1082,6 +1119,10 @@ h2 {
             font-size: $fs-md;
             line-height: 2;
             color: #8D96BD;
+        }
+
+        @media (max-width: $breakpoint-md-max) {
+            margin-bottom: $base * 5;
         }
     }
 
@@ -1105,10 +1146,7 @@ h2 {
 
 // === footer ===
 .section-footer{
-    .section-inner{
-        padding-top: $padding-vertical-xs;
-        padding-bottom: $padding-vertical-xs;
-    }
+    border-bottom: 0;
 }
 
 .copyright{
