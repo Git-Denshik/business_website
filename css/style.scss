@@ -176,30 +176,40 @@ h6 {
 
     margin: 0;
     padding: 0;
-    font-weight: $fw-regular;
+    font-weight: $fw-regular
+    // font-weight: $fw-regular;
 }
 
-h1,
 h2 {
-    margin-bottom: $base * 7;
-    font-size: 48px;
-}
-
-h3 { 
-    margin-bottom: $base * 7;
-    font-size: 36px; 
-}
-h4 { 
-    margin-bottom: $base * 20;
-    font-size: 24px; 
-}
-
-h5 {
     @include roboto;
 
     font-size: 10px;
     margin-bottom: $base * 4;
     text-transform: uppercase;
+}
+
+// h3 { 
+//     margin-bottom: $base * 7;
+//     font-size: 36px; 
+// }
+// h4 { 
+//     margin-bottom: $base * 20;
+//     font-size: 24px; 
+// }
+
+// h5 {
+//     @include roboto;
+
+//     font-size: 10px;
+//     margin-bottom: $base * 4;
+//     text-transform: uppercase;
+// }
+
+.section-subtitle {
+    @include Quicksand;
+
+    margin-bottom: $base * 7;
+    font-size: 48px;
 }
 
 .ta-c {
@@ -243,6 +253,17 @@ h5 {
         border-bottom-left-radius: 0;
     }
 }
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
 // === / Common ===
 
 // === hearder ===
@@ -259,10 +280,13 @@ h5 {
 }
 
 .logo{
-    background-color: #5E81FE;
-    width: $base * 6;
-    height: $base * 6;
-    border-radius: 100%;
+    &__link {
+        display: block;
+        background-color: #5E81FE;
+        width: $base * 6;
+        height: $base * 6;
+        border-radius: 100%;
+    }
 }
 
 .nav{
@@ -362,7 +386,7 @@ h5 {
         text-align: center;
 
         &-content{
-            h2 {
+            .section-subtitle {
                 font-weight: $fw-light;
                 color: #3D4F9F;
 
@@ -434,7 +458,7 @@ h5 {
             left: 50%;
         }
 
-        h3 {
+        .section-subtitle {
             font-weight: $fw-light;
             color: #3D4F9F;
 
@@ -463,10 +487,11 @@ h5 {
 .section-features {
     background: url(../img/features/bg/bg_features.svg) no-repeat 50% 50%;
 
-    h4 {
+    .section-subtitle {
         @include Quicksand;
 
         font-weight: $fw-medium;
+        font-size: 24px;
         color: #3D4F9F;
     }
 
@@ -516,6 +541,8 @@ h5 {
             background-color: #F1F5FF;
         }
         &-title {
+            @include roboto;
+
             font-weight: $fw-bold;
             font-size: $fs-md;
             color: #4074F8;
@@ -596,6 +623,11 @@ h5 {
 .section-blog{
     background-color: #F5F8FF;
     color: #3D4F9F;
+
+    .section-subtitle {
+        font-size: 24px;
+        font-weight: $fw-medium;
+    }
 }
 
 .slider-wrapper {
@@ -609,7 +641,7 @@ h5 {
     border: 1px solid #d8e3fe;
     background-color: $color-white;
     color: #3D4F9F;
-    box-shadow: 0 $base*3 $base*12 #eff4ff;
+    box-shadow: 0 $base*3 $base*20 #cbd1dd;
 
     &__item{
         display: flex;
@@ -699,7 +731,12 @@ h5 {
         }
 
         &-content {
-            margin-left: 10%;
+            margin-left: 5%;
+
+            h3 {
+                margin-bottom: $base * 7;
+                font-size: 36px;
+            }
 
             .text {
                 font-size: $fs-md;
@@ -741,7 +778,8 @@ h5 {
         justify-content: space-between;
         color: #3D4F9F;
 
-        h3 {
+        .section-subtitle {
+            font-size: 36px;
             font-weight: $fw-medium;
         }
     }
@@ -799,8 +837,11 @@ h5 {
 .section-faq {
     color: #3D4F9F;
 
-    h4 {
-        font-weight: $fw-medium;
+    .section-inner {
+        .section-subtitle {
+            font-size: 24px;
+            font-weight: $fw-medium;
+        }
     }
 }
 
@@ -823,6 +864,11 @@ h5 {
 
                 &-icon {
                     transform: rotate(0);
+                }
+
+                &-text {
+                    font-weight: $fw-bold;
+                    color: #495274;
                 }
             }
 
@@ -894,25 +940,24 @@ h5 {
     .section-inner {
         position: relative;
         z-index: 10;
-    }
 
-    h2,
-    h5 {
-        color: $color-white;
-    }
-
-    h2 {
-        font-weight: $fw-light;
-
-        span {
-            font-weight: $fw-medium;
+        h2 {
+            color: $color-white;
         }
-    }
 
-    .text {
-        max-width: 60%;
-        margin: 0 auto $base*5;
-        line-height: 2;
+        .section-subtitle {
+            font-weight: $fw-light;
+            color: $color-white;
+    
+            span {
+                font-weight: $fw-medium;
+            }
+        }
+        .text {
+            max-width: 60%;
+            margin: 0 auto $base*5;
+            line-height: 2;
+        }
     }
 }
 // === / get started ===
@@ -936,6 +981,7 @@ h5 {
             font-weight: $fw-bold;
             margin-bottom: $base * 4;
             color: #3D4F9F;
+            text-transform: none;
         }
 
         &-text {
