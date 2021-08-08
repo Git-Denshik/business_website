@@ -15,26 +15,40 @@ document.querySelector('.btn-burger').addEventListener('click', (event) => {
 
 
 // === Slider hero image ===
-const swiper = new Swiper('.section-hero-image', {
-    // // Optional parameters
-    // direction: 'vertical',
-    // loop: true,
-  
-    // If we need paginsation
+new Swiper('.section-hero-image', {
+
     pagination: {
-      el: '.swiper-pagination',
+      el: '.section-hero-image .dots',
       clickable:true,
     },
-  
-    // // Navigation arrows
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
-  
-    // // And if we need scrollbar
-    // scrollbar: {
-    //   el: '.swiper-scrollbar',
-    // },
   });
 // === / Slider hero image ===
+
+
+// === Slider blog ===
+new Swiper('.slider-blog-container', {
+    loop: true,
+
+    pagination: {
+      el: '.section-blog .dots',
+      clickable:true,
+    },
+
+    navigation: {
+      nextEl: '.section-blog .swiper-button-next',
+      prevEl: '.section-blog .swiper-button-prev',
+    },
+  });
+// === / Slider blog ===
+
+
+// === / Quotes ===
+const swiper = new Swiper('.section-quotes-container', {
+  loop: true,
+  slidesPerView: 'auto',
+
+  pagination: {
+    el: '.section-quotes .dots',
+  },
+});
+// === / Quotes ===
