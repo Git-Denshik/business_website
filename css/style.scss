@@ -76,6 +76,7 @@ body{
     @include roboto;
 
     color: #8D96BD;
+    padding-top: $base * 20;
 }
 
 .section-outer{
@@ -289,21 +290,21 @@ h2 {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+.swiper-pagination-bullet {
+    display: block;
+    width: $base * 2;
+    height: $base * 2;
+    border-radius: 100%;
+    background-color: #D1D6E3;
+    transition: $transition;
+    cursor: pointer;
 
-    &__item {
-        width: $base * 2;
-        height: $base * 2;
-        border-radius: 100%;
-        background-color: #D1D6E3;
-        transition: $transition;
-        cursor: pointer;
-
-        &--active {
-            background-color: #5283FF;
-        }
-        & + & {
-            margin-left: $base * 3;
-        }
+    &--active {
+        background-color: #5283FF;
+    }
+    & + & {
+        margin-left: $base * 3;
     }
 }
 
@@ -475,7 +476,35 @@ h2 {
 
 // === hearder ===
 .section-header{
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: white;
+
+    // === Стили для мобильного меню ===
+    &::before {
+        content: '';
+        display: none;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 150%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &--active-nav {
+        &::before {
+            display: block;
+        }
+
+        .main-navigation__inner-wrap {
+            display: flex;
+        }
+    }
+    // === / Стили для мобильного меню ===
 }
 
 // === button burger ===
@@ -503,9 +532,9 @@ h2 {
 
 // === hero image ===
 .section-hero-image{
-    background-color: #F4F7FF;
     position: relative;
     padding: 0;
+    overflow: hidden;
 
     .dots {
         position: absolute;
@@ -519,8 +548,10 @@ h2 {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
 
     &__item{
+        min-width: 100vw;
         height: $base * 140;
         background-size: cover;
         background-position: 50% 50%;

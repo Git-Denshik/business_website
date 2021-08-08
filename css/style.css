@@ -3,6 +3,7 @@
 body {
   font-family: "Roboto", sans-serif;
   color: #8D96BD;
+  padding-top: 5rem;
 }
 
 .section-outer {
@@ -180,7 +181,9 @@ h2 {
   padding: 0;
   list-style: none;
 }
-.dots__item {
+
+.swiper-pagination-bullet {
+  display: block;
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 100%;
@@ -188,10 +191,10 @@ h2 {
   transition: 0.2s;
   cursor: pointer;
 }
-.dots__item--active {
+.swiper-pagination-bullet--active {
   background-color: #5283FF;
 }
-.dots__item + .dots__item {
+.swiper-pagination-bullet + .swiper-pagination-bullet {
   margin-left: 0.75rem;
 }
 
@@ -339,7 +342,28 @@ h2 {
 }
 
 .section-header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: white;
+}
+.section-header::before {
+  content: "";
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 150%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.section-header--active-nav::before {
+  display: block;
+}
+.section-header--active-nav .main-navigation__inner-wrap {
+  display: flex;
 }
 
 .btn-burger {
@@ -362,9 +386,9 @@ h2 {
 }
 
 .section-hero-image {
-  background-color: #F4F7FF;
   position: relative;
   padding: 0;
+  overflow: hidden;
 }
 .section-hero-image .dots {
   position: absolute;
@@ -377,8 +401,10 @@ h2 {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 .slider-hero-image__item {
+  min-width: 100vw;
   height: 35rem;
   background-size: cover;
   background-position: 50% 50%;
